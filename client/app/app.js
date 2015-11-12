@@ -2,6 +2,7 @@ var app = angular.module('breezy', [
   "breezy.main",
   "breezy.dashboard",
   "breezy.auth",
+  "breezy.create",
   "ngRoute"
 ]);
 
@@ -30,7 +31,7 @@ app.config(function($routeProvider) {
 // });
 
 
-// // factory for services related to the user 
+// // factory for services related to the user
 // app.factory('Users', function ($http) {
 //   var signup = function (user) {
 //     return $http({
