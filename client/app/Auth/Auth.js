@@ -1,5 +1,7 @@
 angular.module('breezy.auth', [])
 
-.controller('AuthController', function($scsope) {
+.controller('AuthController', function($scope) {
+  var signup = function () {
 
+  }
 });
