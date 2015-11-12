@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var pathSchema = new Schema({
   identifiers: {
-    keywords: String,
+    keywords: Array,
     title: String,
     city: String
   },
@@ -17,5 +17,5 @@ var pathSchema = new Schema({
   numLikes: 0
 });
 
-module.exports =
+module.exports = mongoose.model('Path', pathSchema);
 
