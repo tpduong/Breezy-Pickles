@@ -6,6 +6,7 @@ angular.module('breezy.main', [])
 
 
 //Google Maps API
+var poly;
 var map;
 function initMap() {
   //Create a new map and set center to Hack Reactor
@@ -14,6 +15,16 @@ function initMap() {
     center: {lat: 37.784029, lng: -122.408933},
     zoom: 18
   });
+
+  poly = new google.maps.Polyline({
+    strokeColor: '#000000',
+    strokeOpacity: 1.0,
+    strokeWeight: 3
+  });
+  poly.setMap(map);
+
+  // Add a listener for the click event
+  map.addListener('click', addLatLng);
 
   // Note: This example requires that you consent to location sharing when
   // prompted by your browser. If you see the error "The Geolocation service
@@ -39,5 +50,22 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 }
+
+// Handles click events on a map, and adds a new point to the Polyline.
+function addLatLng(event) {
+  var path = poly.getPath();
+
+  // Because path is an MVCArray, we can simply append a new coordinate
+  // and it will automatically appear.
+  path.push(event.latLng);
+
+  // Add a new marker at the new plotted point on the polyline.
+  var marker = new google.maps.Marker({
+    position: event.latLng,
+    title: '#' + path.getLength(),
+    map: map
+  });
+}
+
 
 
