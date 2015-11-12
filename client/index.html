@@ -13,7 +13,7 @@
 
   <!-- Google Font : Raleway -->
 
-  <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+ <!--  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
 
 
   <!-- Skeleton Styles -->
@@ -26,11 +26,26 @@
 
   </head>
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+          Breezy Pickles
+          </a>
+        </div>
 
-    <!-- Directive to swap template -->
-    <div ng-view></div>
+        <form action="POST" class="navbar-form navbar-right">
+          <input type="email" placeholder="example@gmail.com">
+          <input type="password" placeholder="password">
+          <button type="button" class="button navbar-btn">Sign In</button>
+        </form>
 
+      </div>
+    </nav>
 
+    <div>
+
+    </div>
 
   <!-- Angular Script -->
 
