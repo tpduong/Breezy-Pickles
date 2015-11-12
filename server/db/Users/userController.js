@@ -5,7 +5,6 @@ var User = require('./userModel');
 module.exports = {
   addUser: function (req, res, next) {
     var userInfo = req.body;
-    console.log(userInfo);
     User.findOne({username: userInfo.username}).then(function (user) {
       if (user) {
         res.status(400).send('That username already exists in the database!');
