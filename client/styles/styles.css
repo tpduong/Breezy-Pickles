@@ -1,0 +1,12 @@
+hr {
+  margin-top: 0;
+}
+
+#create{
+  border: 1px solid #E1E1E1;
+  height: 500px;
+}
+
+#create a {
+  margin-top: 45%
+}
