@@ -20,6 +20,7 @@
     "angularjs": "0.0.1",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "mongoose": "^4.2.5"
+    "mongoose": "^4.2.5",
+    "path": "^0.12.7"
   }
 }

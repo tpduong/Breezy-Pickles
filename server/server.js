@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require('mongoose');
+var path = require('path');
 var middleware = require('./middleware'); // returns a function
 var router = require('./router.js');
 
