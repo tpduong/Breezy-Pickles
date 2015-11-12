@@ -21,6 +21,10 @@ app.config(function($routeProvider) {
       templateUrl: "app/Auth/signup.html",
       controller: "AuthController"
     })
+    .when('/create', {
+      templateUrl: "app/create/create.html",
+      contoller: "CreateController"
+    })
 
 });
 
