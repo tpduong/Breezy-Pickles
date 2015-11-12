@@ -1,0 +1,26 @@
+{
+  "name": "breezypickles",
+  "version": "1.0.0",
+  "description": "Trace custom routes!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjea/Breezy-Pickles.git"
+  },
+  "author": "CJ Kim Andrew Tracy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjea/Breezy-Pickles/issues"
+  },
+  "homepage": "https://github.com/cjea/Breezy-Pickles#readme",
+  "dependencies": {
+    "angularjs": "0.0.1",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.5",
+    "path": "^0.12.7"
+  }
+}
