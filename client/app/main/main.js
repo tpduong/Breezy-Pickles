@@ -16,6 +16,7 @@ function initMap() {
     zoom: 18
   });
 
+  //Create polylines
   poly = new google.maps.Polyline({
     strokeColor: '#000000',
     strokeOpacity: 1.0,
@@ -30,25 +31,25 @@ function initMap() {
   // prompted by your browser. If you see the error "The Geolocation service
   // failed.", it means you probably did not give permission for the browser to
   // locate you.
-  var infoWindow = new google.maps.InfoWindow({map: map});
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+//   var infoWindow = new google.maps.InfoWindow({map: map});
+//   // Try HTML5 geolocation.
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       var pos = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
+//       infoWindow.setPosition(pos);
+//       infoWindow.setContent('Location found.');
+//       map.setCenter(pos);
+//     }, function() {
+//       handleLocationError(true, infoWindow, map.getCenter());
+//     });
+//   } else {
+//     // Browser doesn't support Geolocation
+//     handleLocationError(false, infoWindow, map.getCenter());
+//   }
 }
 
 // Handles click events on a map, and adds a new point to the Polyline.
@@ -58,6 +59,8 @@ function addLatLng(event) {
   // Because path is an MVCArray, we can simply append a new coordinate
   // and it will automatically appear.
   path.push(event.latLng);
+  console.log("lat:", path.j[0].lat());
+  console.log("long: ", path.j[0].lng());
 
   // Add a new marker at the new plotted point on the polyline.
   var marker = new google.maps.Marker({
@@ -66,6 +69,9 @@ function addLatLng(event) {
     map: map
   });
 }
+
+
+
 
 
 
