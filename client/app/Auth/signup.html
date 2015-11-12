@@ -1,2 +1,46 @@
-<div class="signup" ng-controller='AuthController'>
+<div id="signup" ng-controller='AuthController'>
+  <h2> Sign Up </h2>
+  <form ng-submit="signup()">
+    <div class="row">
+      <label class="three columns">Full name</label>
+      <div class="three columns">
+        <input name="firstName" type="text" class="u-full-width" placeholder="First name" ng-model="user.name.first"/>
+      </div>
+      <div class="three columns">
+        <input name="lastName" type="text" class="u-full-width" placeholder="Last name" ng-model="user.name.last" />
+      </div>
+    </div>
+    <div class="row">
+      <label class="three columns">Username</label>
+      <div class="six columns">
+        <input name="username" type="text" class="u-full-width" ng-model="user.username"/>
+      </div>
+    </div>
+    <div class="row">
+      <label class="three columns">Password</label>
+      <div class="six columns">
+        <input name="password" type="password" class="u-full-width" ng-model="user.password"/>
+      </div>
+    </div>
+    <div class="row">
+      <label class="three columns">Address</label>
+      <div class="six columns">
+        <input name="address" type="text" class="u-full-width" placeholder="123 Main St" ng-model="user.address.street"/>
+      </div>
+    </div>
+    <div class="row">
+      <label class="three columns"></label>
+      <div class="three columns">
+        <input name="city" type="text" class="u-full-width" placeholder="City" ng-model="user.address.city"/>
+      </div>
+      <div class="two columns">
+        <input name="zip" type="text"class="u-full-width" placeholder="Zipcode" ng-model="user.address.zip"/>
+      </div>
+      <div class="one columns">
+        <input name="state" type="text" class="u-full-width" placeholder="" ng-model="user.address.state"/>
+      </div>
+    </div>
+
+    <input class="button-primary" type="submit" value="Submit">
+  </form>
 </div>
