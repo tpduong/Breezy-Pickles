@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- binding app to top level html -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Breezy Pickles</title>
+
+
+  <!-- Bootstrap Styles  -->
+
+  <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css"/>
+
+  <!-- Google Font : Raleway -->
+
+ <!--  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+
+  <!-- Skeleton Styles -->
+  <link rel="stylesheet" href="./lib/skeleton/css/normalize.css"/>
+  <link rel="stylesheet" href="./lib/skeleton/css/skeleton.css"/>
+
+  <!-- Custom Styles -->
+
+  <link rel="stylesheet" href="./styles/styles.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+          Breezy Pickles
+         <!--    <img alt="Breezy Pickles" src=""> -->
+          </a>
+        </div>
+
+        <form action="POST" class="navbar-form navbar-right">
+          <input type="email" placeholder="example@gmail.com">
+          <input type="password" placeholder="password">
+          <button type="button" class="button navbar-btn">Sign In</button>
+        </form>
+
+      </div>
+    </nav>
+
+    <div>
+
+    </div>
+
+  <!-- Angular Script -->
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
+  <!-- jQuery Script -->
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+
+  <!-- App Script -->
+    <script src="./app/dashboard/dashboard.js"></script>
+    <script src="./app/main/main.js"></script>
+    <script src="./app/app.js"></script>
+  </body>
+</html>
