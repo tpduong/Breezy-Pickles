@@ -13,6 +13,8 @@ middleware(app, express);
 
 var PORT = process.env.PORT || 3000;
 
-// TODO: app.use(express.static(***CLIENT STUFF HERE***))
+
+
+app.use(express.static(__dirname+'/../client'));
 
 app.listen(PORT);

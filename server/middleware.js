@@ -11,8 +11,22 @@ module.exports = function (app, express) {
 
   // app.get('/', function (req, res){res.send('YOU MADE IT!')});
 
-  // Should post with user information according to user schema
+//=============== ROUTES FOR USERS ===============\\
   app.route('/users')
-    .post(userController.addUser)
     .get(userController.getAllUsers);
-}
+
+  app.route('/users/signup')
+    .post(userController.addUser);
+    
+  app.route('/users/signin')
+    .post(userController.signIn);
+
+
+//=============== ROUTES FOR PATHS ===============\\
+  app.route('/paths')
+    .post(pathController.addPath)
+    .get(pathController.getAllPaths);
+
+  app.route('/paths/search/:query')
+    .get(pathController.filterPaths);
+};
