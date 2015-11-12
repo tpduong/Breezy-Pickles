@@ -11,6 +11,12 @@ html, body {
   margin: 5px;
 }
 
+#signup { 
+  width: 80%;
+  margin: 30px;
+  padding: 30px;
+}
+
 hr {
   margin-top: 0;
 }
