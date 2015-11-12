@@ -1,6 +1,6 @@
 // TODO : Make mongoose.model('User') and user Schema
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 
