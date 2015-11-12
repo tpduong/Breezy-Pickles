@@ -5,7 +5,6 @@ var Path = require('./pathsModel');
 module.exports = {
   addPath: function (req, res, next) {
     var pathInfo = req.body;
-    console.log(pathInfo);
     new Path(pathInfo).save( function (err) {
       console.error(err);
       res.status(500).send("There was an error adding the path");
