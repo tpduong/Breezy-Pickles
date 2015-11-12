@@ -1,6 +1,7 @@
 var app = angular.module('breezy', [
   "breezy.main",
   "breezy.dashboard",
+  "breezy.auth",
   "ngRoute"
 ]);
 
@@ -15,10 +16,15 @@ app.config(function($routeProvider) {
       templateUrl: "app/dashboard/dashboard.html",
       controller: "DashboardController"
     })
+    .when('/users/signup', {
+      templateUrl: "app/Auth/signup.html",
+      controller: "AuthController"
+    })
+
 });
 
 
-///////////////////// Factory //////////////////////////
+///////////////////// Factories //////////////////////////
 app.factory('Maps', function($http) {
 
 });
@@ -33,7 +39,21 @@ app.factory('Users', function ($http) {
       data: user
     })
     .then( function (resp) {
-      console.log(resp);
+      console.log('signing up', resp);
+      return resp.data;
+    }, function (err) {
+      console.log(err);
+    });
+  };
+
+  var signin = function (user) {
+    return $http({
+      method:'POST',
+      url: '/users/signin',
+      data: user
+    })
+    .then( function (resp) {
+      console.log('signing in', resp);
       return resp.data;
     }, function (err) {
       console.log(err);
