@@ -1,5 +1,6 @@
 // TODO : write a bunch o' functions
 var Path = require('./pathsModel');
+// var url = require('url');
 
 module.exports = {
   addPath: function (req, res, next) {
@@ -19,7 +20,7 @@ module.exports = {
         res.status(200).send(paths);
       }
       else {
-        res.status(200).send([]); // send empty array if no users exist in database
+        res.status(200).send([]); // send empty array if no paths in database
       }
     },function (err) {
         console.error(err);
@@ -28,7 +29,8 @@ module.exports = {
   },
 
   filterPaths: function (req, res, next) {
-
+    var parsed = url.parse(req.url, true);
+    console.log(req.params.query);
   }
 
 };

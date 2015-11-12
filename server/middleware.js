@@ -15,4 +15,13 @@ module.exports = function (app, express) {
   app.route('/users')
     .post(userController.addUser)
     .get(userController.getAllUsers);
-}
+
+  // app.route('/users/search/:query')
+
+  app.route('/paths')
+    .post(pathController.addPath)
+    .get(pathController.getAllPaths);
+
+  app.route('/paths/search/:query')
+    .get(pathController.filterPaths);
+};

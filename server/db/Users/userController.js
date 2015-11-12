@@ -1,5 +1,6 @@
 // TODO : write a bunch o' functions
 var User = require('./userModel');
+// var url = require('url');
 
 module.exports = {
   addUser: function (req, res, next) {
@@ -11,7 +12,7 @@ module.exports = {
       }
       else {
         new User(userInfo).save();
-        next();        
+        next();
       }
 
     }, function (err) {
