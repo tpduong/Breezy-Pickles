@@ -2,6 +2,7 @@ var express = require("express");
 var mongoose = require('mongoose');
 var middleware = require('./middleware'); // returns a function
 var router = require('./router.js');
+
 //============== HOOK UP DATABASE ==============\\
 mongoose.connect('mongodb://localhost/breezy');
 

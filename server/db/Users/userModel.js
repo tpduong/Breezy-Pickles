@@ -13,6 +13,6 @@ var userSchema = new Schema({
   likedRoutes: Array,
   friends: Array
 });
-var userModel = mongoose.model('User', userSchema);
+var UserModel = mongoose.model('User', userSchema);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = UserModel;
