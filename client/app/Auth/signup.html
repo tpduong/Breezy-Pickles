@@ -1,6 +1,6 @@
 <div id="signup" ng-controller='AuthController'>
   <h2> Sign Up </h2>
-  <form ng-submit="signup()">
+  <form>
     <div class="row">
       <label class="three columns">Full name</label>
       <div class="three columns">
@@ -41,6 +41,6 @@
       </div>
     </div>
 
-    <input class="button-primary" type="submit" value="Submit">
+    <button class="button-primary" ng-click="signup()">Button element</button>
   </form>
 </div>

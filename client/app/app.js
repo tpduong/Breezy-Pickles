@@ -25,39 +25,39 @@ app.config(function($routeProvider) {
 
 
 ///////////////////// Factories //////////////////////////
-app.factory('Maps', function($http) {
+// app.factory('Maps', function($http) {
 
-});
+// });
 
 
-// factory for services related to the user 
-app.factory('Users', function ($http) {
-  var signup = function (user) {
-    return $http({
-      method: 'POST',
-      url: '/users/signup',
-      data: user
-    })
-    .then( function (resp) {
-      console.log('signing up', resp);
-      return resp.data;
-    }, function (err) {
-      console.log(err);
-    });
-  };
+// // factory for services related to the user 
+// app.factory('Users', function ($http) {
+//   var signup = function (user) {
+//     return $http({
+//       method: 'POST',
+//       url: '/users/signup',
+//       data: user
+//     })
+//     .then( function (resp) {
+//       console.log('signing up', resp);
+//       return resp.data;
+//     }, function (err) {
+//       console.log(err);
+//     });
+//   };
 
-  var signin = function (user) {
-    return $http({
-      method:'POST',
-      url: '/users/signin',
-      data: user
-    })
-    .then( function (resp) {
-      console.log('signing in', resp);
-      return resp.data;
-    }, function (err) {
-      console.log(err);
-    });
-  };
+//   var signin = function (user) {
+//     return $http({
+//       method:'POST',
+//       url: '/users/signin',
+//       data: user
+//     })
+//     .then( function (resp) {
+//       console.log('signing in', resp);
+//       return resp.data;
+//     }, function (err) {
+//       console.log(err);
+//     });
+//   };
 
-});
+// });
