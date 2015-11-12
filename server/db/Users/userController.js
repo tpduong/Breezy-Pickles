@@ -31,5 +31,9 @@ module.exports = {
       console.error(err);
       res.status(400).send('Error when trying to retrieve all users!');
     });
-  }  
-}
+  },
+
+  filterUsers: function (req, res, next) {
+
+  }
+};
