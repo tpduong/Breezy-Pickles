@@ -16,7 +16,8 @@ app.config(function($routeProvider) {
     })
     .when('/dashboard', {
       templateUrl: "app/dashboard/dashboard.html",
-      controller: "DashboardController"
+      controller: "DashboardController",
+      authenticate: true
     })
     .when('/users/signup', {
       templateUrl: "app/Auth/signup.html",
@@ -24,11 +25,13 @@ app.config(function($routeProvider) {
     })
     .when('/create', {
       templateUrl: "app/create/create.html",
-      controller: "CreateController"
+      controller: "CreateController",
+      authenticate: true
     })
     .when('/archive', {
       templateUrl: "app/archive/archive.html",
-      controller: "ArchiveController"
+      controller: "ArchiveController",
+      authenticate: true
     })
 
 });
@@ -42,7 +45,7 @@ app.factory('Maps', function($http) {
 
 // factory for services related to the user
 
-app.factory('Users', function ($http) {
+app.factory('Users', function ($http, $window, $location) {
   var signup = function (user) {
     console.log("sending a request to http ", user);
     return $http({
@@ -52,7 +55,9 @@ app.factory('Users', function ($http) {
     })
     .then( function (resp) {
       console.log('signing up', resp);
-      return resp.data;
+      var user = resp.data;
+      $window.localStorage.setItem('currentUser', user);
+      return user;
     }, function (err) {
       console.log(err);
 
@@ -67,15 +72,39 @@ app.factory('Users', function ($http) {
     })
     .then( function (resp) {
       console.log('signing in', resp);
-      return resp.data;
+      var user = resp.data;
+      $window.localStorage.setItem('currentUser', user);
+      return user
     }, function (err) {
       console.log(err);
     });
   };
 
+  var signout = function () { 
+    $window.localStorage.removeItem('currentUser');
+    $location.path('/');
+  };
+
+  var isAuth = function () {
+    return !!$window.localStorage.getItem('currentUser');
+  };
+
+
   return {
     signup: signup,
-    signin: signin
+    signin: signin,
+    signout: signout,
+    isAuth: isAuth
   };
 
 });
+
+// check to see if there is a logged in user before change pages 
+app.run(function ($rootScope, $location, Users) {
+  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+    if (next.$$route && next.$$route.authenticate && !Users.isAuth()) {
+      $location.path('/');
+    }
+  });
+});
+
