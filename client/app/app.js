@@ -71,9 +71,10 @@ app.factory('Users', function ($http, $window, $location) {
       data: user
     })
     .then( function (resp) {
-      console.log('signing in', resp);
+      console.log('signing in', resp.data);
       var user = resp.data;
-      $window.localStorage.setItem('currentUser', user);
+      var userId = user._id;
+      $window.localStorage.setItem('currentUser', userId);
       return user
     }, function (err) {
       console.log(err);
