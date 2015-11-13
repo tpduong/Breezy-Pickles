@@ -1,5 +1,4 @@
 var app = angular.module('breezy', [
-  "breezy.main",
   "breezy.dashboard",
   "breezy.auth",
   "breezy.create",
@@ -28,7 +27,7 @@ app.config(function($routeProvider) {
     })
     .when('/archive', {
       templateUrl: "app/archive/archive.html",
-      controller: ""
+      controller: "ArchiveController"
     })
 
 });
@@ -36,16 +35,7 @@ app.config(function($routeProvider) {
 
 ///////////////////// Factories //////////////////////////
 app.factory('Maps', function($http) {
-<<<<<<< HEAD
   return {};
-});
-
-
-// // factory for services related to the user
-app.factory('Users', function ($http) {
-  var signup = function (user) {
-=======
-
 });
 
 
@@ -53,7 +43,6 @@ app.factory('Users', function ($http) {
 app.factory('Users', function ($http) {
   var signup = function (user) {
     console.log("sending a request to http ", user);
->>>>>>> master
     return $http({
       method: 'POST',
       url: '/users/signup',
@@ -64,10 +53,6 @@ app.factory('Users', function ($http) {
       return resp.data;
     }, function (err) {
       console.log(err);
-<<<<<<< HEAD
-=======
-      return;
->>>>>>> master
     });
   };
 
@@ -85,12 +70,10 @@ app.factory('Users', function ($http) {
     });
   };
 
-<<<<<<< HEAD
-=======
+
   return {
     signup: signup,
     signin: signin
   };
 
->>>>>>> master
 });

@@ -74,3 +74,13 @@ html, body {
   font-weight: 300;
 }
 
+/*==========================*/
+
+    /* Archive Template */
+
+/*==========================*/
+
+#archive-map {
+  border: 1px solid black;
+  height: 500px
+}
