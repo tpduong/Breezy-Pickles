@@ -1,3 +1,4 @@
+
 angular.module('breezy.main',[])
   .controller('MainController', function ($scope, $timeout, $location, $window, Maps, Users) {
     $scope.show = false;
@@ -151,14 +152,4 @@ function addLatLng(event) {
 
 
 
-
 //---------------Address Box---------------------
-
-
-
-
-
-
-
-
-
