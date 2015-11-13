@@ -1,6 +1,6 @@
 angular.module('breezy.create', [])
 
-.controller('CreateController', ['$scope', '$http', function ($scope, $http) {
+.controller('CreateController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
   $scope.map;
   $scope.path = null;
   $scope.poly = new google.maps.Polyline({
@@ -103,7 +103,9 @@ $scope.addLatLng = function addLatLng(event) {
       identifiers: {title: $scope.title},
       center: center,
       path: path,
-      zoom: zoom
+      zoom: zoom,
+      createdBy: $window.localStorage.getItem('currentUser'),
+      numLikes:0
     };
     console.log(JSON.stringify(mapInfo));
     $http.post('/paths', JSON.stringify(mapInfo)).then(function () {
