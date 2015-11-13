@@ -100,12 +100,13 @@ $scope.addLatLng = function addLatLng(event) {
       path.push( [latlng.lat(), latlng.lng()] ); // push tuple of [lat, lng] to path
     });
     var mapInfo = {
+      identifiers: {title: $scope.title},
       center: center,
       path: path,
       zoom: zoom
     };
     console.log(JSON.stringify(mapInfo));
-    //$http.post('/paths', JSON.stringify(mapInfo));
+    $http.post('/paths', JSON.stringify(mapInfo));
   }
   $scope.initAutocomplete();
 }]);
