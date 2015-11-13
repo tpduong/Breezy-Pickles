@@ -3,6 +3,14 @@
 <!-- binding app to top level html -->
 <html ng-app="breezy">
   <head>
+    <style>
+    #map {
+      height: 100%;
+    }
+    .view {
+      height:75%;
+    }
+    </style>
     <meta charset="utf-8" />
     <title>Breezy Pickles</title>
 
@@ -24,6 +32,7 @@
 
   <link rel="stylesheet" href="./styles/styles.css" />
 
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places" async defer></script>
   </head>
   <body>
 
@@ -44,7 +53,7 @@
 
       </div>
     </nav> -->
-  <div ng-view></div>
+  <div class="view" ng-view></div>
 
   <!-- Angular Script -->
 
