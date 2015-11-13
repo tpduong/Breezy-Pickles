@@ -10,10 +10,33 @@
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
-    <!-- <form id="searchAddress">
+    <form id="searchAddress">
       <input id="searchTextField" type="text" size="50" placeholder="enter an address">
+
+    <nav class="navbar" ng-controller="MainController">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Breezy</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right navbar-form">
+        <li><button class="button" ng-click='signup()'>Sign Up</button></li>
+        <li><button class="button" ng-click="toggle()">Log In</button></li>
+        <ul>
+      </div>
+        <div ng-show="show">
+          <form id="searchAddress" ng-submit='signin()'>
+            <input type="text" placeholder="username" ng-model="user.username">
+            <input type="password" placeholder="password" ng-model="user.password">
+            <button type='submit' value="submit">Log In</button>
+          </form>
+        </div>
+    </nav>
+   
+    <form id="searchAddress">
+      <input type="text" placeholder="enter an address">
       <input type='submit' value="Search"></input>
-    </form> -->
+    </form>
 
     <button id="path">draw path</button>
     <button id="note">add note</button>
