@@ -1,6 +1,13 @@
 angular.module('breezy.auth', [])
 
 .controller('AuthController', function ($scope, $location, Users) {
+  $scope.show = false;
+
+  $scope.toggle = function () {
+    $scope.show = !$scope.show;
+  };
+
+
   $scope.signup = function () {
     Users.signup( $scope.user )
     .then( function (user) {
@@ -8,4 +15,14 @@ angular.module('breezy.auth', [])
       $location.path('/');
     });
   };
+
+  $scope.signin = function () {
+    Users.signin($scope.user)
+    .then( function (user) {
+      $location.path('/dashboard');
+      //need to set current username in global variable to username
+    });
+  };
+
+
 });

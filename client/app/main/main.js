@@ -1,26 +1,7 @@
 
 angular.module('breezy.main',[])
   .controller('MainController', function ($scope, $timeout, $location, $window, Maps, Users) {
-    $scope.show = false;
-
-    $scope.toggle = function () {
-      $scope.show = !$scope.show;
-    };
-
-    $scope.signup = function () {
-      $location.path('/users/signup');
-    };
-
-    $scope.signin = function () {
-      Users.signin($scope.user)
-      .then( function (user) {
-        $window.currentUser = user;
-
-        console.log($window.currentUser);
-        $location.path('/dashboard');
-        //need to set current username in global variable to username
-      });
-    };
+    
   });
 
 
