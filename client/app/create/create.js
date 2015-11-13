@@ -1,6 +1,7 @@
 angular.module('breezy.create', [])
 
-.controller('CreateController', function($scope, $timeout, Maps) {
+.controller('CreateController', ['$scope', '$http', function ($scope, $http) {
+  $scope.map;
   $scope.path = null;
   $scope.poly = new google.maps.Polyline({
     strokeColor: '#000000',
@@ -16,7 +17,7 @@ angular.module('breezy.create', [])
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-
+    $scope.map = map;
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
@@ -90,9 +91,24 @@ $scope.addLatLng = function addLatLng(event) {
 
   }
   //================ END INITAUTOCOMPLETE DEFINITION ================\\
-
+  $scope.savePath = function () {
+    var center = [ $scope.map.getCenter().lat(), $scope.map.getCenter().lng() ], // tuple of form [lat, lng]
+      pathArr = $scope.poly.getPath().j,   // google maps api gives the actual array of latLng objects the prop-name of "j". Not my idea!
+      zoom = $scope.map.getZoom(),
+      path = [];
+    pathArr.forEach(function(latlng){
+      path.push( [latlng.lat(), latlng.lng()] ); // push tuple of [lat, lng] to path
+    });
+    var mapInfo = {
+      center: center,
+      path: path,
+      zoom: zoom
+    };
+    console.log(JSON.stringify(mapInfo));
+    //$http.post('/paths', JSON.stringify(mapInfo));
+  }
   $scope.initAutocomplete();
-});
+}]);
 
 // Handles click events on a map, and adds a new point to the Polyline.
 
