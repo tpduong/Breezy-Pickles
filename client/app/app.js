@@ -3,6 +3,7 @@ var app = angular.module('breezy', [
   "breezy.dashboard",
   "breezy.auth",
   "breezy.create",
+  "breezy.archive",
   "ngRoute"
 ]);
 
@@ -23,7 +24,11 @@ app.config(function($routeProvider) {
     })
     .when('/create', {
       templateUrl: "app/create/create.html",
-      contoller: "CreateController"
+      controller: "CreateController"
+    })
+    .when('/archive', {
+      templateUrl: "app/archive/archive.html",
+      controller: ""
     })
 
 });
@@ -44,7 +49,7 @@ app.factory('Users', function ($http) {
 });
 
 
-// factory for services related to the user 
+// factory for services related to the user
 app.factory('Users', function ($http) {
   var signup = function (user) {
     console.log("sending a request to http ", user);
