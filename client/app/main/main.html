@@ -7,21 +7,28 @@
   </head>
 
   <body>
-    <form id="searchAddress">
-      <input type="text" placeholder="enter an address">
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+    <!-- <form id="searchAddress">
+      <input id="searchTextField" type="text" size="50" placeholder="enter an address">
       <input type='submit' value="Search"></input>
-    </form>
+    </form> -->
+
+    <button id="path">draw path</button>
+    <button id="note">add note</button>
 
     <!-- Our Google API key is: "AIzaSyApsqX2jobyCW-4g_nVAUdDlBwB88nQBqo"
       Right now there is no limit on which IP can use our key.  Later when we set up our server, we should limit only IP addresses from our server to use the key.  (There is a limit of 25,000 visits/day before we either have to pay or they will not let us use it anymore.)
     -->
     <div id="map"></div>
-    <script src="./main.js"></script>
 
     <!--  Without Google Signin -->
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApsqX2jobyCW-4g_nVAUdDlBwB88nQBqo&callback=initMap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApsqX2jobyCW-4g_nVAUdDlBwB88nQBqo&libraries=places&callback=initAutocomplete"
+         async defer></script>
+    <script src="./main.js"></script>
 
 
   </body>
