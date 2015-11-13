@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
     .when('/create', {
       templateUrl: "app/create/create.html",
       controller: "CreateController",
-      authenticate: true
+      //authenticate: true
     })
     .when('/archive', {
       templateUrl: "app/archive/archive.html",
