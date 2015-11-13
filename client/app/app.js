@@ -3,6 +3,7 @@ var app = angular.module('breezy', [
   "breezy.auth",
   "breezy.create",
   "breezy.archive",
+  "breezy.main",
   "ngRoute"
 ]);
 
@@ -39,11 +40,8 @@ app.factory('Maps', function($http) {
 });
 
 
-<<<<<<< HEAD
 // factory for services related to the user
-=======
-// factory for services related to the user
->>>>>>> master
+
 app.factory('Users', function ($http) {
   var signup = function (user) {
     console.log("sending a request to http ", user);
