@@ -11,7 +11,12 @@ var userSchema = new Schema({
     first: String,
     last: String
   },
-  address: String,
+  address: {
+    street: String,
+    city: String,
+    zip: String,
+    state: String
+  },
   likedRoutes: Array,
   friends: Array
 });
