@@ -8,7 +8,9 @@ var pathSchema = new Schema({
     title: String,
     city: String
   },
-  path: Array, // array of arrays (each subarray is a tuple of longitude and latitude as per Google Maps api)
+  center: Array, // tuple of [latitude, longitude]
+  path: Array, // array of arrays (each subarray is a tuple of [latitude, longitude] as per Google Maps api
+  zoom: Number,
   notes: Array, // where the comment will show up physically on map, array of 3-tuples [lat, long, messageText]
   createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'users'}, // creates foreign key pointing to user who created path
   numLikes: 0
