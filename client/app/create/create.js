@@ -1,18 +1,25 @@
+// TODO: Refactor CreateController code into separate factory
+
 angular.module('breezy.create', [])
 
 .controller('CreateController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
   $scope.map;
+
+  // Set $scope.path within addLatLng function
   $scope.path = null;
+
+  // Instantiate new polyline object (will contain array of latLng objects that form the path)
   $scope.poly = new google.maps.Polyline({
     strokeColor: '#000000',
     strokeOpacity: 1.0,
     strokeWeight: 3
   });
 
-  //================ DEFINE INITAUTOCOMPLETE ================\\
+  //================ DEFINE $SCOPE.INITAUTOCOMPLETE ================\\
   $scope.initAutocomplete = function initAutocomplete() {
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    // Create new map element
+    var map = new google.maps.Map(document.getElementById('map'), { 
       center: {lat: -33.8688, lng: 151.2195},
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -78,26 +85,25 @@ angular.module('breezy.create', [])
   // Add a listener for the click event
   map.addListener('click', $scope.addLatLng);
   }
+  //================ END INITAUTOCOMPLETE DEFINITION ================\\
 
 $scope.addLatLng = function addLatLng(event) {
-  console.dir($scope.poly);
-  $scope.path = $scope.poly.getPath(); // returns array of latLng objects
-  console.log('*******',event.latLng);
-  // Because $scope.path is an MVCArray, we can simply append a new coordinate
+  // Returns array of latLng objects
+  $scope.path = $scope.poly.getPath(); 
+
+  // $scope.path is an MVCArray, append a new coordinate
   // and it will automatically appear.
   $scope.path.push(event.latLng);
-  console.log("lat:", event.latLng.lat());
-  console.log("long: ", event.latLng.lng());
 
   }
-  //================ END INITAUTOCOMPLETE DEFINITION ================\\
+
   $scope.savePath = function () {
     var center = [ $scope.map.getCenter().lat(), $scope.map.getCenter().lng() ], // tuple of form [lat, lng]
-      pathArr = $scope.poly.getPath().j,   // google maps api gives the actual array of latLng objects the prop-name of "j". Not my idea!
-      zoom = $scope.map.getZoom(),
+      pathArr = $scope.poly.getPath().j,   // google maps api gives the array of latLng objects the prop-name of "j". Not my idea!
+      zoom = $scope.map.getZoom(), // number
       path = [];
     pathArr.forEach(function(latlng){
-      path.push( [latlng.lat(), latlng.lng()] ); // push tuple of [lat, lng] to path
+      path.push( [latlng.lat(), latlng.lng()] ); // push tuples of [lat, lng] to path
     });
     var mapInfo = {
       identifiers: {title: $scope.title},
@@ -107,7 +113,6 @@ $scope.addLatLng = function addLatLng(event) {
       createdBy: $window.localStorage.getItem('currentUser'),
       numLikes:0
     };
-    console.log(JSON.stringify(mapInfo));
     $http.post('/paths', JSON.stringify(mapInfo)).then(function () {
       console.log($scope.title + ' saved successfully!');
     });
