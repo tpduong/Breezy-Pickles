@@ -13,7 +13,7 @@ angular.module('breezy.dashboard', [])
   });
 
   $scope.populate = function (index) {
-    if (!$scope.polylines[index]){
+    if (!$scope.polylines[index]){    // avoid re-rendering maps
       $scope.polylines[index] = new google.maps.Polyline({
         strokeColor: '#000000',
         strokeOpacity: 1.0,
