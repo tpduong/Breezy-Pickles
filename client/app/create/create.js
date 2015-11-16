@@ -117,7 +117,8 @@ $scope.addLatLng = function addLatLng(event) {
     $http.post('/paths', JSON.stringify(mapInfo)).then(function () {
       console.log($scope.title + ' saved successfully!');
     });
-
+    $scope.poly.setPath([]);
+    $scope.title = '';
   }
   $scope.initAutocomplete();
 }]);
