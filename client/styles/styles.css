@@ -23,7 +23,7 @@ nav .button {
   border: none;
 }
 
-nav .button:hover { 
+nav .button:hover {
   border-radius: 0;
   background-color: #C0C0C0;
 }
@@ -94,11 +94,29 @@ html, body {
 
 /*==========================*/
 
-.maps {
-  border: 1px solid black;
-  height: 400px;
-  margin-top:5%;
+#dashboard-title {
+  background-color: #33C3F0;
+  color: white;
+  border-radius: 5px;
 }
+
+#dashboard-title h3 {
+  margin-top: 2%;
+  margin-left:2.5%;
+}
+
+.maps {
+  height: 400px;
+  margin-top:2.5%;
+  text-align: center;
+}
+
+
 .mapDisplay {
   height:100%;
+}
+
+.maps h5 {
+  border-right: 1px solid #E1E1E1;
+  border-bottom: 1px solid #E1E1E1;
 }
