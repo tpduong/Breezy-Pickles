@@ -13,13 +13,22 @@
       <li><button class="button" ng-click='signout()'>Log Out</button></li>
   </div>
 </nav>
+<div class="container" id="dashboard-title">
+  <h3>Your Dashboard</h3>
+</div>
 
 <!-- Past Maps Table && Create New Map -->
 <div ng-controller="DashboardController">
   <div class="container">
-    <div class="container maps" ng-repeat="map in maps">
-      <p ng-click="populate($index)">{{map.identifiers.title}}</p>
-      <div id="{{$index}}" class="mapDisplay"></div>
+    <div class="maps" ng-repeat="map in maps">
+      <div class="two columns">
+        <h5>{{map.identifiers.title}}</h5>
+        <p class="button button-primary" ng-click="populate($index)"><span class="glyphicon glyphicon-map-marker"></span></p>
+      </div>
+
+        <!-- <a href="#/dashboard" class="two columns button button-primary" >{{map.identifiers.title}}</a> -->
+
+        <div id="{{$index}}" class="ten columns mapDisplay"></div>
     </div>
   </div>
 
