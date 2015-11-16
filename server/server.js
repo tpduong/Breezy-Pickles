@@ -4,7 +4,8 @@ var path = require('path');
 var middleware = require('./middleware'); // returns a function
 
 //============== HOOK UP DATABASE ==============\\
-mongoose.connect('mongodb://localhost/breezy');
+var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/breezy';
+mongoose.connect(mongoURI);
 
 var app = express();
 
