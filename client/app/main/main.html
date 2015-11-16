@@ -20,10 +20,16 @@
         <ul>
       </div>
         <div ng-show="show">
-          <form id="searchAddress" ng-submit='signin()'>
-            <input type="text" placeholder="username" ng-model="user.username">
-            <input type="password" placeholder="password" ng-model="user.password">
-            <button type='submit' value="submit">Log In</button>
+          <form id="login" ng-submit='signin()'>
+            <div class="row">
+              <input type="text" placeholder="username" ng-model="user.username">
+            </div>
+            <div class="row">
+              <input type="password" placeholder="password" ng-model="user.password">
+            </div>
+            <div class="row">
+              <button type='submit' value="submit">Log In</button>
+            </div>
           </form>
         </div>
     </nav>

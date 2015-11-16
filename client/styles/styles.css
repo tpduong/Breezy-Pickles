@@ -13,6 +13,16 @@ hr {
 
 }
 
+#login {
+  position: absolute;
+  right: 30px;
+  top: 60px;
+}
+
+nav .button {
+  border: none;
+}
+
 /*.angular-google-map-container { height: 400px; }*/
 
 
