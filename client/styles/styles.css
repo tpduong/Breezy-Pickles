@@ -85,3 +85,6 @@ html, body {
   height: 400px;
   margin-top:5%;
 }
+.mapDisplay {
+  height:100%;
+}

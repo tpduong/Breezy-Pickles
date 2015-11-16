@@ -16,7 +16,10 @@
 <!-- Past Maps Table && Create New Map -->
 <div ng-controller="DashboardController">
   <div class="container">
-    <div id="{{$index}}" class="maps" ng-repeat="map in maps" ng-click="populate($index)">{{$index}}</div>
+    <div class="container maps" ng-repeat="map in maps">
+      <p ng-click="populate($index)">{{map.identifiers.title}}</p>
+      <div id="{{$index}}" class="mapDisplay"></div>
+    </div>
   </div>
 
 </div>
