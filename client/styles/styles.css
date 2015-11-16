@@ -23,6 +23,10 @@ nav .button {
   border: none;
 }
 
+nav .button:hover { 
+  border-radius: 0;
+  background-color: #C0C0C0;
+}
 /*.angular-google-map-container { height: 400px; }*/
 
 
