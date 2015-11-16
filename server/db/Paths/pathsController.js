@@ -6,8 +6,13 @@ module.exports = {
   addPath: function (req, res, next) {
     var pathInfo = req.body;
     new Path(pathInfo).save( function (err) {
-      console.error(err);
-      res.status(500).send("There was an error adding the path");
+      if (err) {
+        console.error(err);
+        //res.status(500).send("There was an error adding the path");
+      } 
+      else {
+        console.log('path saved successfully!')
+      }
     });
     next();
   },
