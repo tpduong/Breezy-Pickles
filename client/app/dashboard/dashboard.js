@@ -4,18 +4,35 @@ angular.module('breezy.dashboard', [])
   $scope.signout = function() {
     Users.signout();
   };
-  $scope.paths = [];
+  $scope.maps = [];
 
-  $http.get('/paths').then(function(paths) {
-    $scope.paths = paths.data;
+  $scope.polylines = {};
+
+  $http.get('/paths').then(function(maps) {
+    $scope.maps = maps.data;
   });
+
   $scope.populate = function (index) {
-    var mapDiv = document.getElementById(index);
-    var mapInfo = $scope.paths[index];
-    var map = new google.maps.Map(mapDiv, { 
-      center: {lat: +mapInfo['center'][0], lng: +mapInfo['center'][1]},
-      zoom: mapInfo['zoom'],
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    if (!$scope.polylines[index]){
+      $scope.polylines[index] = new google.maps.Polyline({
+        strokeColor: '#000000',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+      });
+
+      $scope.polylines[index].setPath($scope.maps[index].path.map(function (tuple) {
+        return {lat: tuple[0], lng: tuple[1]};
+      }));
+
+      var mapDiv = document.getElementById(index);
+      var mapInfo = $scope.maps[index];
+      var map = new google.maps.Map(mapDiv, { 
+        center: {lat: +mapInfo['center'][0], lng: +mapInfo['center'][1]},
+        zoom: mapInfo['zoom'],
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      $scope.polylines[index].setMap(map);
+    }
   };
 }]);
