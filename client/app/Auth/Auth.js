@@ -7,6 +7,10 @@ angular.module('breezy.auth', [])
     $scope.show = !$scope.show;
   };
 
+  $scope.dashboard = function () { 
+    $location.path('/dashboard');
+  }
+
   $scope.reroute = function () { 
     $location.path('/users/signup');
   }
