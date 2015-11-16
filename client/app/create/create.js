@@ -96,7 +96,12 @@ $scope.addLatLng = function addLatLng(event) {
   // and it will automatically appear.
   $scope.path.push(event.latLng);
 
-  }
+  };
+
+  $scope.undoLast = function () {
+    $scope.poly.getPath().pop();
+    $scope.path = $scope.poly.getPath();
+  };
 
   $scope.savePath = function () {
     var center = [ $scope.map.getCenter().lat(), $scope.map.getCenter().lng() ], // tuple of form [lat, lng]

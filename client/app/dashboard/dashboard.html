@@ -17,36 +17,9 @@
 <!-- Past Maps Table && Create New Map -->
 <div ng-controller="DashboardController">
   <div class="container">
-    <div class="row">
-      <div class="six columns">
-        <table class="u-full-width">
-          <thead>
-            <tr style="width:100%">
-              <th>Past Maps</th>
-            </tr>
-          </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td>4</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-      <div class="six columns" id="create">
-        <div class="text-center">
-          <a href="" class="button">Create New Map</a>
-        </div>
-      </div>
+    <div class="container maps" ng-repeat="map in maps">
+      <p ng-click="populate($index)">{{map.identifiers.title}}</p>
+      <div id="{{$index}}" class="mapDisplay"></div>
     </div>
   </div>
 

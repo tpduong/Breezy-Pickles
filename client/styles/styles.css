@@ -90,11 +90,15 @@ html, body {
 
 /*==========================*/
 
-    /* Archive Template */
+    /* Dashboard Template */
 
 /*==========================*/
 
-#archive-map {
+.maps {
   border: 1px solid black;
-  height: 500px
+  height: 400px;
+  margin-top:5%;
+}
+.mapDisplay {
+  height:100%;
 }
