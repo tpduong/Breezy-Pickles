@@ -12,7 +12,8 @@ angular.module('breezy.create', [])
   $scope.poly = new google.maps.Polyline({
     strokeColor: '#000000',
     strokeOpacity: 1.0,
-    strokeWeight: 3
+    strokeWeight: 3,
+    editable: true
   });
 
   //================ DEFINE $SCOPE.INITAUTOCOMPLETE ================\\
@@ -116,6 +117,7 @@ $scope.addLatLng = function addLatLng(event) {
     $http.post('/paths', JSON.stringify(mapInfo)).then(function () {
       console.log($scope.title + ' saved successfully!');
     });
+
   }
   $scope.initAutocomplete();
 }]);
