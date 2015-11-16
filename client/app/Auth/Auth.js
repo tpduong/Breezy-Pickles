@@ -7,6 +7,9 @@ angular.module('breezy.auth', [])
     $scope.show = !$scope.show;
   };
 
+  $scope.reroute = function () { 
+    $location.path('/users/signup');
+  }
 
   $scope.signup = function () {
     Users.signup( $scope.user )
