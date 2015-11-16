@@ -76,11 +76,11 @@ html, body {
 
 /*==========================*/
 
-    /* Archive Template */
+    /* Dashboard Template */
 
 /*==========================*/
 
-#archive-map {
+.maps {
   border: 1px solid black;
-  height: 500px
+  height: 200px
 }
