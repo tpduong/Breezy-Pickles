@@ -23,7 +23,7 @@ nav .button {
   border: none;
 }
 
-nav .button:hover { 
+nav .button:hover {
   border-radius: 0;
   background-color: #C0C0C0;
 }
@@ -102,3 +102,88 @@ html, body {
 .mapDisplay {
   height:100%;
 }
+
+
+/*==========================*/
+
+    /* Main */
+
+/*==========================*/
+
+#intro{
+  background-color: #1EAEDB;
+  color: white;
+  border-radius: 10px;
+}
+
+#intro h5 {
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+#intro-map {
+  margin-top: 3%;
+  margin-left: 0.5%;
+  padding-bottom: 1%;
+}
+
+#banner {
+  height:300px;
+  background-size: auto 80%;
+ font: bold;
+}
+
+#banner img {
+  height:300px;
+}
+
+#intro-text {
+  height:300px;
+  border: 1px solid #E1E1E1;;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+#mainContainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#banner-container {
+  color: gray;
+  text-decoration: none;
+  text-align: center;
+}
+
+
+#create-main {
+  text-align: center;
+  margin-top: 2%;
+  padding: 10px 0;
+  border: 1px solid #E1E1E1;
+  background-color: #1EAEDB;
+  border-radius: 10px;
+}
+
+#create-main a {
+  margin-bottom: 10%;
+  color: white;
+}
+
+.whitespace {
+  margin-bottom: 25px;
+}
+
+#hr {
+  text-align: center;
+}
+
+.mainImages {
+  margin: 15px 0;
+}
+
+
+
+
