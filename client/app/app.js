@@ -17,7 +17,7 @@ app.config(function($routeProvider) {
     .when('/dashboard', {
       templateUrl: "app/dashboard/dashboard.html",
       controller: "DashboardController",
-      // authenticate: true
+      authenticate: true
     })
     .when('/users/signup', {
       templateUrl: "app/Auth/signup.html",
@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
     .when('/create', {
       templateUrl: "app/create/create.html",
       controller: "CreateController",
-      //authenticate: true
+      // authenticate: true
     })
     .when('/archive', {
       templateUrl: "app/archive/archive.html",
