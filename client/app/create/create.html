@@ -1,13 +1,15 @@
 
 <nav class="navbar">
+
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Breezy</a>
+        <a class="navbar-brand" href="#">
+        Breezy
+        </a>
     </div>
-    <div class="nav navbar-nav navbar-right navbar-form">
-        <a href="#/dashboard" class="button">dashboard</a>
-        <a class="button">Log Out</a>
-    </div>
+    <ul class="nav navbar-nav navbar-right navbar-form">
+      <li><button class="button" ng-click="navToDash()">Dashboard</button></li>
+      <li><button class="button" ng-click='signout()'>Log Out</button></li>
   </div>
 </nav>
 
