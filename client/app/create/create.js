@@ -2,7 +2,13 @@
 
 angular.module('breezy.create', [])
 
-.controller('CreateController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
+.controller('CreateController', ['$scope', '$http', '$window', '$location', 'Users', function ($scope, $http, $window, $location, Users) {
+
+  $scope.navToDash = function () {
+    $location.path('/dashboard');
+  };
+
+  $scope.signout = Users.signout;
   $scope.map;
 
   // Set $scope.path within addLatLng function

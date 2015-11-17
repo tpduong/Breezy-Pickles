@@ -1,6 +1,9 @@
 angular.module('breezy.dashboard', [])
 
-.controller('DashboardController', ['$scope', 'Users', '$http', function ($scope, Users, $http) {
+.controller('DashboardController', ['$scope', 'Users', '$http', '$location', function ($scope, Users, $http, $location) {
+  $scope.createMap = function () {
+    $location.path('/create');
+  };
   $scope.signout = function() {
     Users.signout();
   };
