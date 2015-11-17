@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
     .when('/create', {
       templateUrl: "app/create/create.html",
       controller: "CreateController",
-      //authenticate: true
+      // authenticate: true
     })
     .when('/archive', {
       templateUrl: "app/archive/archive.html",
@@ -81,7 +81,7 @@ app.factory('Users', function ($http, $window, $location) {
     });
   };
 
-  var signout = function () { 
+  var signout = function () {
     $window.localStorage.removeItem('currentUser');
     $location.path('/');
   };
@@ -100,7 +100,7 @@ app.factory('Users', function ($http, $window, $location) {
 
 });
 
-// check to see if there is a logged in user before change pages 
+// check to see if there is a logged in user before change pages
 app.run(function ($rootScope, $location, Users) {
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     if (next.$$route && next.$$route.authenticate && !Users.isAuth()) {
@@ -108,4 +108,3 @@ app.run(function ($rootScope, $location, Users) {
     }
   });
 });
-

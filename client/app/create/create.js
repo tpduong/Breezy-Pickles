@@ -2,7 +2,31 @@
 
 angular.module('breezy.create', [])
 
-.controller('CreateController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
+.controller('CreateController', ['$scope', '$http', '$window', '$location', 'Users', function ($scope, $http, $window, $location, Users) {
+  $scope.currentUser = Users.isAuth();
+  $scope.show = false;
+
+  $scope.signin = function () {
+    Users.signin($scope.user).then(function (user) {
+      if (user.username) {
+        $scope.currentUser = true;
+        $scope.show = false;
+      }
+      else {
+        console.error('Invalid log in');
+      };
+    });
+
+  };
+  $scope.navToDash = function () {
+    $location.path('/dashboard');
+  };
+
+  $scope.toggle = function () { 
+    $scope.show = !$scope.show;
+  }
+
+  $scope.signout = Users.signout;
   $scope.map;
 
   // Set $scope.path within addLatLng function

@@ -1,19 +1,35 @@
 
 <nav class="navbar">
+
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Breezy</a>
+        <a class="navbar-brand" href="#">
+        Breezy
+        </a>
     </div>
-    <div class="nav navbar-nav navbar-right navbar-form">
-        <a class="button">dashboard</a>
-        <a class="button">Log Out</a>
-    </div>
+    <ul class="nav navbar-nav navbar-right navbar-form">
+      <li><button class="button" ng-click="navToDash()">Dashboard</button></li>
+      <li><button class="button" ng-click='signout()' ng-show="currentUser">Log Out</button></li>
+      <li><button class="button" ng-click="toggle()" ng-show="!currentUser">Sign in</button></li>
+  </div>
+  <div ng-show="show">
+    <form id="login" ng-submit='signin()'>
+      <div class="row">
+        <input type="text" placeholder="username" ng-model="user.username">
+      </div>
+      <div class="row">
+        <input type="password" placeholder="password" ng-model="user.password">
+      </div>
+      <div class="row">
+        <button type='submit' value="submit">Log In</button>
+      </div>
+    </form>
   </div>
 </nav>
 
 
   <!-- Container -->
-<button class="savePath" ng-click="savePath()">Save path</button>
+<button class="savePath" ng-click="savePath()" ng-show="currentUser">Save path</button>
 <input type="text" ng-model="title" placeholder="Title here . . ."/> <h3>{{title}}</h3>
 <div class="row"></div>
 <button class="undo" ng-click="undoLast()">Undo Last</button>
