@@ -114,6 +114,14 @@ html, body {
   height:100%;
 }
 
+.button {
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+#control {
+  margin: 5px;
+}
 
 /*==========================*/
 

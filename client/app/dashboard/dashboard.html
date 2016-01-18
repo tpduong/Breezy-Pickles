@@ -4,7 +4,7 @@
 
   <div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#/">
         Breezy
         </a>
     </div>
@@ -17,6 +17,20 @@
   <h3>Your Dashboard</h3>
 </div>
 
+<div class="container">
+  <div id="control">
+    <form>
+
+        <input id="searchBox" placeholder="search tearm" ng-model="searchTerm"/>
+        <span id="searchButton" class="button" ng-click="search()"><b>Search</b></span>
+
+        <span id="allMaps" class="button" ng-click ="displayAllMaps()"> All Maps</span>
+
+        <span id="myMaps" class="button" ng-click="displayMyMaps()"> My Maps</span>
+    </form>
+  <div>
+</div>
+
 <!-- Past Maps Table && Create New Map -->
 <div ng-controller="DashboardController">
   <div class="container">
@@ -26,9 +40,8 @@
         <p class="button button-primary" ng-click="populate($index)"><span class="glyphicon glyphicon-map-marker"></span></p>
       </div>
 
-        <!-- <a href="#/dashboard" class="two columns button button-primary" >{{map.identifiers.title}}</a> -->
-
         <div id="{{$index}}" class="ten columns mapDisplay"></div>
+
     </div>
   </div>
 
